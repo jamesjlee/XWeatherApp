@@ -29,7 +29,7 @@ export class AddWeatherWidgetComponent implements OnInit {
       } else {
         //proceed
         this.invalidCity = false;
-        let cities = JSON.parse(this.weatherService.getWeatherArrFromStorage());
+        let cities = this.weatherService.getWeatherArrFromStorage();
         cities.push({
           id: weather.id,
           location: weather.name,

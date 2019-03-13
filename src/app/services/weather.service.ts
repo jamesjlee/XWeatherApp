@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject, Observable } from "rxjs";
 
+//NOTE: Normally would store this data in a database, but for ease of use we're using localstorage
 @Injectable({
   providedIn: "root"
 })
@@ -18,7 +19,7 @@ export class WeatherService {
 
   setWeatherArrInStorage(cities: any) {
     localStorage.setItem(
-      "weatherArr-" + localStorage.getItem("email"),
+      "weatherArr-" + localStorage.getItem("signedEmail"),
       JSON.stringify(cities)
     );
     this.weatherStorage.next(JSON.stringify(cities));
@@ -26,12 +27,16 @@ export class WeatherService {
 
   getWeatherArrFromStorage(): any {
     return (
-      localStorage.getItem("weatherArr-" + localStorage.getItem("email")) || []
+      JSON.parse(
+        localStorage.getItem(
+          "weatherArr-" + localStorage.getItem("signedEmail")
+        )
+      ) || JSON.parse("[]")
     );
   }
 
   removeWeatherLocationFromStorage(id: string) {
-    let weatherArr = JSON.parse(this.getWeatherArrFromStorage());
+    let weatherArr = this.getWeatherArrFromStorage();
     weatherArr = weatherArr.filter((item) => {
       return item.id !== id;
     });

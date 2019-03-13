@@ -25,7 +25,7 @@ export class AuthService {
       const json = await response.json();
       localStorage.setItem("authToken", json.token);
 
-      localStorage.setItem("email", data.email);
+      localStorage.setItem("signedEmail", json.signedEmail);
 
       const expiresAt = moment().add(json.expiresIn, "second");
 

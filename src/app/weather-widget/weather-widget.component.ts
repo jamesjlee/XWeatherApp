@@ -11,7 +11,7 @@ export class WeatherWidgetComponent implements OnInit {
   weatherArr: any;
 
   constructor(private weatherService: WeatherService, private router: Router) {
-    this.weatherArr = JSON.parse(weatherService.getWeatherArrFromStorage());
+    this.weatherArr = weatherService.getWeatherArrFromStorage();
   }
 
   ngOnInit() {
