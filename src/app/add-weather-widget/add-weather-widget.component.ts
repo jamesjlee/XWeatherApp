@@ -10,6 +10,7 @@ declare let $: any;
 })
 export class AddWeatherWidgetComponent implements OnInit {
   @ViewChild("modal") modal: ElementRef;
+  @ViewChild("addCityBtn") addCityBtn: ElementRef;
   city: string;
   invalidCity: boolean;
   constructor(private weatherService: WeatherService) {}

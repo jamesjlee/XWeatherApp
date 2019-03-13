@@ -7,27 +7,27 @@
   </div>
   <div class="row">
     <p style="margin-right: 3%">
-      Choose a format for temperatures (default Fahrenheight):
+      Choose a format for temperatures (default Fahrenheit):
     </p>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label
         class="btn btn-secondary"
         [ngClass]="{ active: radioButtonToggle }"
-        (click)="celsiusOrFahrenheightClicked()"
-        #fahrenheight
+        (click)="celsiusOrFahrenheitClicked()"
+        #fahrenheit
       >
         <input
           type="radio"
-          name="fahrenheight"
-          id="fahrenheight"
+          name="fahrenheit"
+          id="fahrenheit"
           autocomplete="off"
         />
-        Fahrenheight
+        Fahrenheit
       </label>
       <label
         class="btn btn-secondary"
         [ngClass]="{ active: !radioButtonToggle }"
-        (click)="celsiusOrFahrenheightClicked()"
+        (click)="celsiusOrFahrenheitClicked()"
         #celsius
       >
         <input type="radio" name="celsius" id="celsius" autocomplete="off" />

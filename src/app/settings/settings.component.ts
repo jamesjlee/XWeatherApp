@@ -12,7 +12,7 @@ export class SettingsComponent implements OnInit {
   radioButtonToggle: boolean;
   settingsSaved: boolean = false;
   isLoggedIn: boolean;
-  @ViewChild("fahrenheight") fahrenheight: ElementRef;
+  @ViewChild("fahrenheit") fahrenheit: ElementRef;
   @ViewChild("celsius") celsius: ElementRef;
 
   constructor(private router: Router, private weatherService: WeatherService) {}
@@ -40,13 +40,13 @@ export class SettingsComponent implements OnInit {
     this.radioButtonToggle = true;
   }
 
-  celsiusOrFahrenheightClicked() {
+  celsiusOrFahrenheitClicked() {
     this.radioButtonToggle = !this.radioButtonToggle;
     this.settingsSaved = false;
   }
 
   saveSettings() {
-    if (this.fahrenheight.nativeElement.classList.contains("active")) {
+    if (this.fahrenheit.nativeElement.classList.contains("active")) {
       localStorage.setItem(
         "tempFormat-" + localStorage.getItem("signedEmail"),
         "imperial"

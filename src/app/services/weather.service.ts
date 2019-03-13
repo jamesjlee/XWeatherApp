@@ -44,6 +44,14 @@ export class WeatherService {
     // this.weatherStorage.next(JSON.stringify(weatherArr));
   }
 
+  displayingInFormat() {
+    return (
+      localStorage.getItem(
+        "tempFormat-" + localStorage.getItem("signedEmail")
+      ) || "imperial"
+    );
+  }
+
   async getWeather(city: string) {
     try {
       const response = await fetch(
