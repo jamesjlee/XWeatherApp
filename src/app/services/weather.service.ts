@@ -50,7 +50,9 @@ export class WeatherService {
         "/data/2.5/weather?q=" +
           city +
           "&units=" +
-          this.units +
+          (localStorage.getItem(
+            "tempFormat-" + localStorage.getItem("signedEmail")
+          ) || this.units) +
           "&appid=" +
           this.apiKey,
         {
@@ -75,7 +77,9 @@ export class WeatherService {
         "/data/2.5/forecast?id=" +
           id +
           "&units=" +
-          this.units +
+          (localStorage.getItem(
+            "tempFormat-" + localStorage.getItem("signedEmail")
+          ) || this.units) +
           "&appid=" +
           this.apiKey,
         {

@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <h1>Settings</h1>
+  </div>
+  <div class="row">
+    <a [routerLink]="['/landing']">Back</a>
+  </div>
+  <div class="row">
+    <p style="margin-right: 3%">
+      Choose a format for temperatures (default Fahrenheight):
+    </p>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label
+        class="btn btn-secondary"
+        [ngClass]="{ active: radioButtonToggle }"
+        (click)="celsiusOrFahrenheightClicked()"
+        #fahrenheight
+      >
+        <input
+          type="radio"
+          name="fahrenheight"
+          id="fahrenheight"
+          autocomplete="off"
+        />
+        Fahrenheight
+      </label>
+      <label
+        class="btn btn-secondary"
+        [ngClass]="{ active: !radioButtonToggle }"
+        (click)="celsiusOrFahrenheightClicked()"
+        #celsius
+      >
+        <input type="radio" name="celsius" id="celsius" autocomplete="off" />
+        Celsius
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div
+      class="alert alert-success"
+      role="alert"
+      id="settings-alert"
+      *ngIf="settingsSaved"
+    >
+      Settings Saved Successfully!
+    </div>
+  </div>
+  <div class="row">
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="margin-top: 3%"
+      (click)="saveSettings()"
+    >
+      Save Settings
+    </button>
+  </div>
+</div>

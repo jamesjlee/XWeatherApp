@@ -14,6 +14,7 @@ import { WeatherWidgetComponent } from "./weather-widget/weather-widget.componen
 import { WeatherService } from "./services/weather.service";
 import { WeatherMoreInfoComponent } from "./weather-more-info/weather-more-info.component";
 import { ChartModule } from "angular2-chartjs";
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ChartModule } from "angular2-chartjs";
     PageNotFoundComponent,
     AddWeatherWidgetComponent,
     WeatherWidgetComponent,
-    WeatherMoreInfoComponent
+    WeatherMoreInfoComponent,
+    SettingsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ChartModule],
   providers: [AuthService, WeatherService],

@@ -36,9 +36,12 @@ export class AddWeatherWidgetComponent implements OnInit {
           temp: weather.main.temp,
           high: weather.main.temp_max,
           low: weather.main.temp_min,
-          overcastState: weather.weather[0].main
+          overcastState: weather.weather[0].main,
+          format:
+            localStorage.getItem(
+              "tempFormat-" + localStorage.getItem("signedEmail")
+            ) || "imperial"
         });
-
         this.weatherService.setWeatherArrInStorage(cities);
         this.city = "";
         $(this.modal.nativeElement).modal("hide");
