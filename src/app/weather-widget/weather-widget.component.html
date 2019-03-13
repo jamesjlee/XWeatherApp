@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: 18rem;" *ngFor="let weather of weatherArr">
+      <div class="card-body">
+        <h5 class="card-title">
+          <b>{{ weather.location }}</b>
+        </h5>
+        <p class="card-text">
+          Current Temperature: <b>{{ weather.temp }}°</b>
+        </p>
+        <p class="card-text">
+          Expected High: <b>{{ weather.high }}°</b>
+        </p>
+        <p class="card-text">
+          Expected Low: <b>{{ weather.low }}°</b>
+        </p>
+        <p class="card-text">
+          Overcast state: <b>{{ weather.overcastState }}</b>
+        </p>
+        <button
+          type="button"
+          class="btn btn-dark"
+          (click)="moreInfo(weather.id)"
+        >
+          More Info.
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="removeLocation(weather.id)"
+        >
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

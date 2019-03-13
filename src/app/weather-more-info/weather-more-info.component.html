@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <a [routerLink]="['/landing']">Back</a>
+  </div>
+  <div class="row" *ngIf="moreInfoArrDisplay">
+    <ul class="list-inline">
+      <li class="list-inline-item" *ngFor="let weather of moreInfoArrDisplay">
+        <div>
+          <b>{{ weather.dayOfWeek }}</b>
+        </div>
+        <div>
+          High:<b> {{ weather.high }}°</b>
+        </div>
+        <div>
+          Low:<b> {{ weather.low }}°</b>
+        </div>
+        <div>
+          Overcast state:<b> {{ weather.overcastState }}</b>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="row" *ngIf="this.data" style="margin-top: 5%">
+    <chart
+      [type]="type"
+      [data]="data"
+      [options]="options"
+      style="width: 70%; height: 100%;"
+    ></chart>
+  </div>
+</div>
